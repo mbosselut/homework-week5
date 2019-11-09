@@ -5,6 +5,7 @@ const jsonParser = bodyParser.json();
 const port = 3000;
 
 const logging = () => console.log(`Listening on port ${port}...`);
+
 app.use(jsonParser);
 
 let apiCalls = 0;

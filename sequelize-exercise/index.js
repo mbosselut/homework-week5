@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
 const logging = () => console.log(`Listening on port ${port}...`);
+
 app.use(jsonParser);
 
 app.get('/movie', (req, res, next) => {
@@ -44,7 +45,7 @@ app.delete('/movie/:id', (req, res, next) => {
         .then(movie => {
             if (movie) {
                 movie.destroy();
-                res.send(`The movie with id ${req.params.id} got deleted`);
+                res.send(`The movie with id ${req.params.id} was deleted`);
             } else {
                 res.status(404).end();
             }
