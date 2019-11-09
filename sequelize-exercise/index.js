@@ -18,7 +18,7 @@ app.get('/movie', (req, res, next) => {
 
 app.get('/movie/:id', (req, res, next) => {
     Movie.findByPk(req.params.id)
-        .then(film => res.json(film))
+        .then(film => (film ? res.json(film) : res.status(404).end()))
         .catch(err => next(err));
 });
 
